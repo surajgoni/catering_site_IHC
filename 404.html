@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Indian Harbor Caterer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+            padding: 40px 20px;
+        }
+        .error-content {
+            text-align: center;
+            color: white;
+            max-width: 600px;
+        }
+        .error-code {
+            font-size: 10rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+        .error-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .error-btn {
+            padding: 15px 30px;
+            background: white;
+            color: #d4a574;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .error-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background: #f8f9fa;
+        }
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            .error-title {
+                font-size: 2rem;
+            }
+            .error-message {
+                font-size: 1.1rem;
+            }
+            .error-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .error-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Oops! Page Not Found</h2>
+            <p class="error-message">
+                We couldn't find the page you're looking for. It might have been moved, deleted, or never existed in the first place. 
+                Let's get you back on track!
+            </p>
+            <div class="error-buttons">
+                <a href="index.html" class="error-btn">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </a>
+                <a href="contact.html" class="error-btn">
+                    <i class="fas fa-envelope"></i>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
