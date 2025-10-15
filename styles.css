@@ -1311,7 +1311,7 @@ section {
 }
 
 .footer-contact .contact-item span {
-    color: white;
+    color: white !important;
     line-height: 1.5;
     display: inline-block !important;
     flex: 1;
@@ -1319,14 +1319,14 @@ section {
 }
 
 .footer-contact .contact-item span a {
-    color: white;
+    color: white !important;
     text-decoration: none;
     transition: color 0.3s ease;
     text-align: left !important;
 }
 
 .footer-contact .contact-item a {
-    color: white;
+    color: white !important;
     text-decoration: none;
     transition: color 0.3s ease;
     text-align: left !important;
@@ -1334,6 +1334,13 @@ section {
 
 .footer-contact .contact-item a:hover {
     color: #E6C373;
+}
+
+/* Force footer contact text to be white */
+.footer .footer-contact .contact-item span,
+.footer .footer-contact .contact-item a,
+.footer .footer-contact .contact-item span a {
+    color: white !important;
 }
 
 .footer-bottom {
