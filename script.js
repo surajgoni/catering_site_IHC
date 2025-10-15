@@ -656,3 +656,114 @@ const galleryLightboxStyles = `
 const galleryStyleSheet = document.createElement('style');
 galleryStyleSheet.textContent = galleryLightboxStyles;
 document.head.appendChild(galleryStyleSheet);
+
+// Testimonials Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselWrapper = document.getElementById('testimonialCarousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (carouselWrapper && prevBtn && nextBtn) {
+        let currentSlide = 0;
+        const totalSlides = carouselWrapper.children.length;
+        
+        // Function to update carousel position
+        function updateCarousel() {
+            const translateX = -currentSlide * 33.333;
+            carouselWrapper.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update button states (no need to disable since we're looping)
+            // prevBtn.disabled = currentSlide === 0;
+            // nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+        
+        // Next slide function
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Loop back to first slide
+            }
+            updateCarousel();
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1; // Loop back to last slide
+            }
+            updateCarousel();
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // Touch/swipe support
+        let startX = 0;
+        let endX = 0;
+        
+        carouselWrapper.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        
+        carouselWrapper.addEventListener('touchmove', function(e) {
+            endX = e.touches[0].clientX;
+        });
+        
+        carouselWrapper.addEventListener('touchend', function() {
+            const diffX = startX - endX;
+            const threshold = 50;
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    nextSlide(); // Swipe left - go to next slide
+                } else {
+                    prevSlide(); // Swipe right - go to previous slide
+                }
+            }
+        });
+        
+        // Initialize carousel
+        updateCarousel();
+        
+        // Auto-play functionality (optional)
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                nextSlide(); // This will automatically loop back to first slide
+            }, 2000); // Change slide every 2 seconds
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Start auto-play
+        startAutoPlay();
+        
+        // Pause auto-play on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+    }
+});
