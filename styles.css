@@ -1311,7 +1311,7 @@ section {
 }
 
 .footer-contact .contact-item span {
-    color: #bdc3c7;
+    color: white;
     line-height: 1.5;
     display: inline-block !important;
     flex: 1;
@@ -1319,14 +1319,14 @@ section {
 }
 
 .footer-contact .contact-item span a {
-    color: #bdc3c7;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
     text-align: left !important;
 }
 
 .footer-contact .contact-item a {
-    color: #bdc3c7;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
     text-align: left !important;
