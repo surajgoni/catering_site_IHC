@@ -1544,6 +1544,17 @@ section {
     min-height: 120px;
 }
 
+/* Form label styling */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Date input specific styling */
 input[type="date"] {
     background: white !important;
@@ -1558,6 +1569,15 @@ input[type="date"] {
     appearance: none !important;
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
+}
+
+/* Show placeholder text for empty date input */
+input[type="date"]:invalid {
+    color: #999 !important;
+}
+
+input[type="date"]:valid {
+    color: #333 !important;
 }
 
 input[type="date"]:focus {
