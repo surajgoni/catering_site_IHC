@@ -1798,6 +1798,24 @@ section {
         font-size: 16px;
     }
     
+    /* Fix contact item colors on mobile */
+    .contact-item h4 {
+        color: #333 !important;
+    }
+    
+    .contact-item p,
+    .contact-item a {
+        color: #333 !important;
+    }
+    
+    .contact-details h3 {
+        color: #333 !important;
+    }
+    
+    .contact-details p {
+        color: #333 !important;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
