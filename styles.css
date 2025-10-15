@@ -1555,8 +1555,13 @@ section {
     letter-spacing: 0.5px;
 }
 
-/* Date input specific styling */
-input[type="date"] {
+/* Date input wrapper styling */
+.date-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-input-wrapper input[type="date"] {
     background: white !important;
     color: #333 !important;
     border: 2px solid #e9ecef !important;
@@ -1571,13 +1576,27 @@ input[type="date"] {
     -moz-appearance: none !important;
 }
 
-/* Show placeholder text for empty date input */
-input[type="date"]:invalid {
-    color: #999 !important;
+.date-placeholder {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-input[type="date"]:valid {
-    color: #333 !important;
+.date-input-wrapper input[type="date"]:focus + .date-placeholder,
+.date-input-wrapper input[type="date"]:valid + .date-placeholder {
+    opacity: 0;
+}
+
+.date-input-wrapper input[type="date"]:focus {
+    outline: none !important;
+    border-color: #d4a574 !important;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1) !important;
 }
 
 input[type="date"]:focus {
@@ -1879,7 +1898,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     }
     
     /* Mobile date input styling */
-    input[type="date"] {
+    .date-input-wrapper input[type="date"] {
         background: white !important;
         color: #333 !important;
         border: 2px solid #e9ecef !important;
@@ -1891,7 +1910,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         box-sizing: border-box !important;
     }
     
-    input[type="date"]:focus {
+    .date-placeholder {
+        left: 18px;
+        font-size: 16px;
+    }
+    
+    .date-input-wrapper input[type="date"]:focus {
         border-color: #d4a574 !important;
         box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1) !important;
     }
